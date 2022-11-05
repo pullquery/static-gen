@@ -2,7 +2,6 @@ import fs from "fs/promises";
 import ejs from "ejs";
 import MarkdownIt from "markdown-it";
 
-
 export async function readArticlesDir(): Promise<string[]> {
     return await fs.readdir("resource/articles");
 }
