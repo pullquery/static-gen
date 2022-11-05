@@ -1,6 +1,6 @@
 # Static Generator
 
-Static Generator generate static HTMLs from Markdowns.
+Static Generator generate static HTML from Markdown.
 
 ## Directories
 - src: TypeScript source
