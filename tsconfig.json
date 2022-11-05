@@ -3,6 +3,7 @@
     // Target
     "target": "ES6",
     "module": "CommonJS",
+    "moduleResolution": "Node",
     // Dir
     "rootDir": "./src",
     "baseUrl": "./src",
