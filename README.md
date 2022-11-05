@@ -12,3 +12,9 @@ Static Generator generate static HTMLs from Markdowns.
     - scripts: Client-side JavaScript
     - templates: EJS templates
 - static: HTML pages
+
+## To Dos
+- class
+- index.html, about.html
+- article header
+- css, js
