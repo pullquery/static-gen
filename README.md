@@ -14,7 +14,12 @@ Static Generator generate static HTML from Markdown.
 - static: HTML pages
 
 ## To Dos
-- class
 - index.html, about.html
 - article header
 - css, js
+
+## Contents
+- index
+- docs
+- works
+- assets, styles, scripts
