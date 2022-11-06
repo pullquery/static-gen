@@ -1,15 +1,15 @@
 import fs from "fs/promises";
 import _fs from "fs";
 
-import PaperModel from "./PaperModel";
+import PaperModel from "../models/PaperModel";
 import path from "path";
 
 export default class PaperWorker {
-    appDir: string;
-    staticDir: string;
+    private readonly appDir: string;
+    private readonly staticDir: string;
+    private readonly template: string;
 
-    appFiles?: PaperModel[];
-    template: string;
+    private appFiles?: PaperModel[];
 
     constructor(appDir: string, staticDir: string, template: string) {
         this.appDir = appDir;

@@ -5,8 +5,8 @@ Static Generator generate static HTML from Markdown.
 ## Directories
 - src: TypeScript source
 - dist: JavaScript app
-- resource
-    - articles: Markdown articles
+- app
+    - papers: Markdown articles
     - assets: Assets of articles
     - styles: CSS
     - scripts: Client-side JavaScript
@@ -15,11 +15,13 @@ Static Generator generate static HTML from Markdown.
 
 ## To Dos
 - index.html, about.html
+- project imports
 - article header
-- css, js
+- image
+- script type="module"
 
 ## Contents
 - index
-- docs
+- papers
 - works
 - assets, styles, scripts

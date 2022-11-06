@@ -5,12 +5,12 @@ import ejs from "ejs";
 import MarkdownIt from "markdown-it";
 
 export default class PaperModel {
-    appDir: string;
+    private readonly appDir: string;
 
-    appFile: string;
+    private readonly appFile: string;
+    private appContent?: string;
+
     staticFile: string;
-
-    appContent?: string;
     staticContent?: string;
 
     constructor(appDir: string, appFile: string) {
