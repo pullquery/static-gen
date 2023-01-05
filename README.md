@@ -20,6 +20,17 @@ Static Generator generate static HTML from Markdown.
 - image
 - script type="module"
 
+```
+papers - *Paper*
+  paper.md
+assets - *Asset*
+  style
+  script
+  image
+robots.txt - *Root*
+index.md - *RootPaper*
+```
+
 ## Contents
 - index
 - papers

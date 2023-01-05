@@ -7,8 +7,6 @@
     "start": "node ./dist/main.js"
   },
   "dependencies": {
-    "@parcel/config-default": "^2.7.0",
-    "@parcel/core": "^2.7.0",
     "ejs": "^3.1.8",
     "esbuild": "^0.15.13",
     "markdown-it": "^13.0.1",
