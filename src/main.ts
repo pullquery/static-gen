@@ -1,7 +1,22 @@
-import EsbuildWorker from "./workers/EsbuildWorker";
-import PaperWorker from "./workers/PaperWorker";
+import fs from "fs";
+import path from "path";
 
-(async () => {
-    await new PaperWorker("app/papers", "static/papers", "input/templates/paper.ejs").work();
-    await new EsbuildWorker("app/styles/style.css", "input/scripts/script.ts", "static").work();
-})();
+function dir(src: string, dest: string) {
+    // init src, dest
+    const files = fs.readdirSync(src);
+    fs.mkdirSync(dest);
+
+    files.forEach((fileName) => {
+        // update src, dest
+        const srcPath = path.join(src, fileName);
+        const destPath = path.join(dest, fileName);
+
+        if (fs.statSync(srcPath).isDirectory()) {
+            dir(srcPath, destPath);
+        } else {
+            fs.copyFileSync(srcPath, destPath);
+        }
+    });
+}
+
+dir("input", "output");
