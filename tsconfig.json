@@ -9,7 +9,6 @@
         "target": "ES6",
         "module": "CommonJS",
         "moduleResolution": "Node",
-        // "rootDir": "src",
         "baseUrl": "src",
         "outDir": "dist",
         "removeComments": true,
