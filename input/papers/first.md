@@ -1,3 +1,3 @@
-# First Doc
+# First Paper
 
-This is the first **doc**.
+This is the **first** paper.

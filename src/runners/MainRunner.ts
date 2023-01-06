@@ -3,7 +3,7 @@ import path from "path";
 
 import { splitFilename } from "../util";
 
-import PaperRunner from "./PaperRunner";
+import PaperRunner from "./MdRunner";
 import ScriptRunner from "./ScriptRunner";
 import StyleRunner from "./StyleRunner";
 

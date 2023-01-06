@@ -4,7 +4,7 @@ import { marked } from "marked";
 
 export default class PaperRunner {
     static run(src: string, dest: string) {
-        this.action(src, dest, "src/templates/paper.ejs");
+        this.action(src, dest, "src/templates/md.ejs");
     }
 
     static action(src: string, dest: string, template: string) {
@@ -13,8 +13,6 @@ export default class PaperRunner {
         ejs.renderFile(template, {
             title: "Paper",
             content: marked(content, { headerIds: false }),
-        });
-
-        fs.writeFileSync(dest, content);
+        }).then(rendered => fs.writeFileSync(dest, rendered));
     }
 }

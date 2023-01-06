@@ -7,39 +7,17 @@ Static Generator generate static HTML from Markdown.
 - input
 - output
 
-## To Dos
-- project imports
-- article header
-- image
-- script type="module"
-- check file(exist)
-
-```
-read()
-
-src
-dest
-
-srcContent
-  ||
-[as stream!!!!]
-  ||
-destContent
-
-write()
-```
-
-```
-app
-MainRunner
-- MdRunner
-- StyleRunner
-- ScriptRunner
-- AssetRunner
-```
-
 ## Contents
 - index
 - papers
 - works
-- assets, styles, scripts
+- styles, scripts
+- assets
+
+## To Dos
+- article header
+- script type="module"
+- check file when build(exist)
+- deploy
+- index.html file by auto
+- Runner interface
