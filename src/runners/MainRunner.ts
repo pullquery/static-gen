@@ -9,10 +9,6 @@ import StyleRunner from "./StyleRunner";
 
 export default class MainRunner {
     static run(src: string, dest: string) {
-        this.action(src, dest);
-    }
-
-    static action(src: string, dest: string) {
         const files = fs.readdirSync(src);
         fs.mkdirSync(dest);
 
@@ -21,7 +17,7 @@ export default class MainRunner {
             const newDest = path.join(dest, fileName);
 
             if (fs.statSync(newSrc).isDirectory()) {
-                this.action(newSrc, newDest);
+                this.run(newSrc, newDest);
             } else {
                 this.convey(newSrc, newDest);
             }
@@ -36,10 +32,12 @@ export default class MainRunner {
             case "md":
                 PaperRunner.run(src, destBody + ".html");
                 break;
-            case "js" || "ts":
+            case "js":
+            case "ts":
                 ScriptRunner.run(src, destBody + ".js");
                 break;
-            case "css" || "scss":
+            case "css":
+            case "scss":
                 StyleRunner.run(src, destBody + ".css");
                 break;
             default:
