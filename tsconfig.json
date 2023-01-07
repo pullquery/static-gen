@@ -1,16 +1,12 @@
 {
     "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "app/**/*"
+        "./src/**/*.ts",
+        "./src/**/*.d.ts"
     ],
     "compilerOptions": {
-        "target": "ES6",
-        "module": "CommonJS",
         "moduleResolution": "Node",
-        "baseUrl": "src",
-        "outDir": "dist",
+        "baseUrl": "./src",
+        "outDir": "./dist",
         "removeComments": true,
         "esModuleInterop": true,
         "strict": true,

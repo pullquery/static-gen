@@ -1,11 +1,11 @@
 {
   "name": "static-gen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "prestart": "tsc",
-    "start": "node dist/app.js",
-    "serve": "http-server output -p 3000"
+    "start": "node ./dist/app.js",
+    "serve": "http-server ./output -p 3000"
   },
   "dependencies": {
     "ejs": "^3.1.8",

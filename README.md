@@ -20,4 +20,11 @@ Static Generator generate static HTML from Markdown.
 - check file when build(exist)
 - deploy
 - index.html file by auto
-- Runner interface
+- opengraph
+
+```html
+<meta property="og:title" content="<%- title %>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pullquery.github.io">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/108810259?v=4">
+```

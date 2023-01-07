@@ -1,3 +1,3 @@
-import MainRunner from "./runners/MainRunner";
+import MainRunner from "./workers/MainWorker";
 
-MainRunner.run("input", "output");
+new MainRunner("input", "output").run();
