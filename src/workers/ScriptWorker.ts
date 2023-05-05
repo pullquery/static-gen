@@ -1,12 +1,10 @@
 import esbuild from "esbuild";
 
-export default class ScriptRunner {
-    src: string;
-    dest: string;
+import Worker from "./Worker";
 
+export default class ScriptWorker extends Worker {
     constructor(src: string, dest: string) {
-        this.src = src;
-        this.dest = dest;
+        super(src, dest);
     };
 
     run() {

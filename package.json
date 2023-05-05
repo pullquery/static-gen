@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "prestart": "tsc",
-    "start": "node ./dist/app.js",
+    "start": "node ./dist/run.js",
     "serve": "http-server ./output -p 3000"
   },
   "dependencies": {

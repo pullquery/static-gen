@@ -1,26 +1,23 @@
 import fs from "fs";
 import path from "path";
 
-import { splitFilename } from "../strings";
+import { checkIsDirectory, splitFilename } from "../file";
 
-import PaperRunner from "./MdWorker";
-import ScriptRunner from "./ScriptWorker";
-import StyleRunner from "./StyleWorker";
+import Worker from "./Worker";
+import PaperWorker from "./MdWorker";
+import ScriptWorker from "./ScriptWorker";
+import StyleWorker from "./StyleWorker";
 
-export default class MainRunner {
-    src: string;
-    dest: string;
-
+export default class MainRunner extends Worker {
     constructor(src: string, dest: string) {
-        this.src = src;
-        this.dest = dest;
+        super(src, dest);
     };
 
     run() {
-        this.action(this.src, this.dest);
+        this.readDir(this.src, this.dest);
     }
 
-    action(src: string, dest: string) {
+    private readDir(src: string, dest: string) {
         const files = fs.readdirSync(src);
         fs.mkdirSync(dest);
 
@@ -28,31 +25,35 @@ export default class MainRunner {
             const newSrc = path.join(src, fileName);
             const newDest = path.join(dest, fileName);
 
-            if (fs.statSync(newSrc).isDirectory()) {
-                this.action(newSrc, newDest);
+            if (checkIsDirectory(newSrc)) {
+                this.readDir(newSrc, newDest);
             } else {
-                this.convey(newSrc, newDest);
+                this.copyFile(newSrc, newDest);
             }
         });
     }
 
-    convey(src: string, dest: string) {
+    private copyFile(src: string, dest: string) {
         const [_srcBody, srcExtension] = splitFilename(src);
         const [destBody, _destExtension] = splitFilename(dest);
 
+        let copyWorker: Worker;
+
         switch (srcExtension.toLowerCase()) {
             case "md":
-                new PaperRunner(src, destBody + ".html", "./templates/md.ejs").run();
+                copyWorker = new PaperWorker(src, destBody + ".html", "./templates/md.ejs");
                 break;
             case "js":
             case "ts":
-                new ScriptRunner(src, destBody + ".js").run();
+                copyWorker = new ScriptWorker(src, destBody + ".js");
                 break;
             case "css":
-                new StyleRunner(src, destBody + ".css").run();
+                copyWorker = new StyleWorker(src, destBody + ".css");
                 break;
             default:
-                fs.copyFileSync(src, dest);
+                copyWorker = new Worker(src, dest);
         }
+
+        copyWorker.run();
     }
 }

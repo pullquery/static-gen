@@ -2,14 +2,13 @@ import fs from "fs";
 import ejs from "ejs";
 import { marked } from "marked";
 
-export default class PaperRunner {
-    src: string;
-    dest: string;
+import Worker from "./Worker";
+
+export default class PaperWorker extends Worker {
     template: string;
 
     constructor(src: string, dest: string, template: string) {
-        this.src = src;
-        this.dest = dest;
+        super(src, dest);
         this.template = template;
     };
 

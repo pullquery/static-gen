@@ -1,15 +1,15 @@
-// import fs from "fs";
+import fs from "fs";
 
-// export default class PaperRunner {
-//     src: string;
-//     dest: string;
+export default class Worker {
+    protected src: string;
+    protected dest: string;
 
-//     constructor(src: string, dest: string) {
-//         this.src = src;
-//         this.dest = dest;
-//     };
+    constructor(src: string, dest: string) {
+        this.src = src;
+        this.dest = dest;
+    };
 
-//     run() {
-//         fs.copyFileSync(this.src, this.dest);
-//     }
-// }
+    run() {
+        fs.copyFileSync(this.src, this.dest);
+    }
+}

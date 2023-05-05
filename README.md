@@ -8,18 +8,26 @@ Static Generator generate static HTML from Markdown.
 - output
 
 ## Contents
-- index
+```
+index.html
+papers.html
+parts.html
+projects.html
+
 - papers
-- works
-- styles, scripts
+- parts
+- projects
+
+- styles
+- scripts
 - assets
+```
 
 ## To Dos
 - article header
-- script type="module"
+- index.html file by auto
 - check file when build(exist)
 - deploy
-- index.html file by auto
 - opengraph
 
 ```html
